@@ -1,0 +1,38 @@
+이미 로컬 db 를 설치하신 분들은 
+db/mysql_info.js 파일을 열어 db 정보를 본인의 설정값으로 변경하세요
+이후 아래의 내용을 복사하여 db 툴에서 실행시키면 db와 테이블이 생성됩니다.
+
+create database funny_api;
+
+use funny_api;
+
+CREATE TABLE `user_info` (
+	`uid` INT(5) NOT NULL AUTO_INCREMENT,
+	`user_id` VARCHAR(256) NOT NULL DEFAULT '0',
+	`user_passwd` CHAR(50) NOT NULL DEFAULT '0',
+	`user_name` VARCHAR(256) NOT NULL DEFAULT '0',
+	`user_address` VARCHAR(256) NOT NULL DEFAULT '0',
+	`user_birthday` VARCHAR(256) NOT NULL DEFAULT '0',
+	`user_sex` VARCHAR(1) NOT NULL DEFAULT '0',
+	`user_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`uid`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=7
+;
+
+
+CREATE TABLE `board_info` (
+	`id` INT(5) NOT NULL AUTO_INCREMENT,
+	`uid` INT(5) NOT NULL DEFAULT '0',
+	`title` VARCHAR(256) NOT NULL DEFAULT '0',
+	`content` LONGTEXT NULL,
+	`reg_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`update_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=3
+;
